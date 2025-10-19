@@ -1,0 +1,5 @@
+{
+  "name": "@agent-smith/example-lib",
+  "module": "src/index.ts",
+  "type": "module"
+}

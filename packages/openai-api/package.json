@@ -1,5 +1,13 @@
 {
   "name": "@agent-smith/openai-api",
   "module": "src/index.ts",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "example": "bun run src/example.ts 2> >(sed -r \"s/\\x1B\\[[0-9;]*[A-Za-z]//g\" > ./tmp.txt)"
+  },
+  "dependencies": {
+    "openai": "^6.5.0",
+    "zod": "^4.1.12",
+    "zod-to-json-schema": "^3.24.6"
+  }
 }
