@@ -21,6 +21,7 @@
         "noNamespace": "error",
         "useArrayLiterals": "error",
         "useAsConstAssertion": "error",
+        "useImportType": "error",
         "useConsistentObjectDefinitions": {
           "level": "error",
           "options": {

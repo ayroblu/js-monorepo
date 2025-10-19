@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@agent-smith/openai-api": "workspace:*",
+    "jotai": "2.10.4",
     "react": "catalog:react",
-    "react-dom": "catalog:react"
+    "react-dom": "catalog:react",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/react": "catalog:react",

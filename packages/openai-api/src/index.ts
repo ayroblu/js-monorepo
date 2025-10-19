@@ -3,7 +3,7 @@ import type {
   ResponseCreateParamsBase,
   Tool,
 } from "openai/resources/responses/responses.js";
-import { z } from "zod";
+import type { z } from "zod";
 import zodToJsonSchema from "zod-to-json-schema";
 
 const origin =
@@ -11,8 +11,9 @@ const origin =
     ? `${window.location.protocol}//${window.location.host}`
     : "http://localhost:5173";
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
   baseURL: `${origin}/openai`,
+  dangerouslyAllowBrowser: true,
 });
 
 type Options = {
@@ -31,7 +32,9 @@ export class OpenAIApi {
     }
   }
 
-  async response(input: NonNullable<ResponseCreateParamsBase["input"]>) {
+  async *response(
+    input: NonNullable<ResponseCreateParamsBase["input"]>,
+  ): AsyncIterable<string> {
     const response = await openai.responses.create({
       model: this.options.model,
       instructions: "You are a helpful assistant.",
@@ -50,7 +53,7 @@ export class OpenAIApi {
       switch (event.type) {
         case "response.refusal.delta":
         case "response.output_text.delta":
-          process.stdout.write(event.delta);
+          yield event.delta;
           break;
         case "response.completed":
           console.error("\n✅ Done!");
@@ -84,7 +87,9 @@ export class OpenAIApi {
         : input),
       ...results,
     ];
-    await this.response(nextInput);
+    for await (const text of this.response(nextInput)) {
+      yield text;
+    }
   }
 
   private tools(): Tool[] {

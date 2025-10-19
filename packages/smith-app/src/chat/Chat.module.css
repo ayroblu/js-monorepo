@@ -1,0 +1,65 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+.input {
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
+  background-color: transparent;
+}
+
+.input:focus {
+  outline: none;
+}
+
+
+.inputBox {
+  border-radius: 999em;
+  background-color: field;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border: 2px solid #242424;
+  min-width: min(600px, calc(100% - 1rem));
+}
+
+.sendButton {
+  background: transparent;
+  border-radius: 100%;
+  aspect-ratio: 1;
+  padding: 0.6rem;
+  transition: background-color 0.2s;
+}
+
+.sendButton:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.chat>* {
+  padding: 0 8px;
+}
+
+.chatContainer {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+.bottomFixed {
+  position: fixed;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  padding: 0;
+}
