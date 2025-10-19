@@ -9,9 +9,23 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5.9.3"
+    "typescript": "5.9.3"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "catalogs": {
+      "react": {
+        "react": "19.2.0",
+        "react-dom": "19.2.0",
+        "@types/react": "19.2.2",
+        "@types/react-dom": "19.2.2"
+      },
+      "vite": {
+        "@vitejs/plugin-react": "5.0.4",
+        "vite": "7.1.10"
+      }
+    }
+  }
 }
