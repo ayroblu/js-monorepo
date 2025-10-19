@@ -4,10 +4,12 @@ import { Chat } from "./chat/Chat.tsx";
 
 function App() {
   return (
-    <main className={styles.div}>
-      <div>hi</div>
-      <Chat />
-    </main>
+    <Provider>
+      <main className={styles.div}>
+        <div>hi</div>
+        <Chat />
+      </main>
+    </Provider>
   );
 }
 
