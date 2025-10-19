@@ -16,4 +16,8 @@ const api = new OpenAIApi({
   model: "grok-4-fast",
   functionTools: { getWeather },
 });
-await api.response("What's the weather like in Paris today?");
+for await (const text of api.response(
+  "What's the weather like in Paris today?",
+)) {
+  process.stdout.write(text);
+}

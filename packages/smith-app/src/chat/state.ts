@@ -7,11 +7,14 @@ export type Message = {
   role: "user" | "assistant";
   content: string;
 };
-export const hasMessagesAtom = atom<boolean>((get) => !!get(messagesAtom));
+export const hasMessagesAtom = atom<boolean>(
+  (get) => !!get(messagesAtom).length,
+);
 
 export const sendMessageAtom = atom(null, async (get, set) => {
   const message = get(inputAtom).trim();
   if (!message) return;
+  set(inputAtom, "");
   const pastMessages = get(messagesAtom).map((messageAtom) => get(messageAtom));
   const messageAtom = atom({ role: "assistant" as const, content: "" });
   set(messagesAtom, (m) =>

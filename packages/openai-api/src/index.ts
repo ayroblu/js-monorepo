@@ -3,8 +3,7 @@ import type {
   ResponseCreateParamsBase,
   Tool,
 } from "openai/resources/responses/responses.js";
-import type { z } from "zod";
-import zodToJsonSchema from "zod-to-json-schema";
+import { z } from "zod";
 
 const origin =
   typeof window !== "undefined"
@@ -49,14 +48,14 @@ export class OpenAIApi {
 
     // https://platform.openai.com/docs/guides/function-calling
     for await (const event of response) {
-      console.error("event.type:", event.type);
+      // console.error("event.type:", event.type);
       switch (event.type) {
         case "response.refusal.delta":
         case "response.output_text.delta":
           yield event.delta;
           break;
         case "response.completed":
-          console.error("\n✅ Done!");
+          // console.error("\n✅ Done!");
           break;
         case "response.output_item.done":
           switch (event.item.type) {
@@ -73,8 +72,8 @@ export class OpenAIApi {
               );
               break;
             default:
-              // outputItems[event.output_index] = event.item;
-              console.error("unused output item:", event.item.type, event);
+            // outputItems[event.output_index] = event.item;
+            // console.error("unused output item:", event.item.type, event);
           }
           break;
       }
@@ -99,7 +98,7 @@ export class OpenAIApi {
         name,
         description,
         strict: true,
-        parameters: zodToJsonSchema(params, "args").definitions!.args,
+        parameters: z.toJSONSchema(params, { target: "openapi-3.0" }),
       }),
     );
   }

@@ -10,7 +10,7 @@ export function Message({
   messageAtom: Atom<Message>;
 }): React.ReactNode {
   const message = useAtomValue(messageAtom);
-  if (!message) {
+  if (!message.content) {
     return;
   }
   return (

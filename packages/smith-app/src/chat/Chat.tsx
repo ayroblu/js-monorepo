@@ -12,7 +12,6 @@ import {
 
 export function Chat() {
   const hasMessages = useAtomValue(hasMessagesAtom);
-  return null;
   if (hasMessages) {
     return <FullChat />;
   }

@@ -6,7 +6,6 @@ function App() {
   return (
     <Provider>
       <main className={styles.div}>
-        <div>hi</div>
         <Chat />
       </main>
     </Provider>

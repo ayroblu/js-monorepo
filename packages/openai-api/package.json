@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "openai": "^6.5.0",
-    "zod": "^4.1.12",
-    "zod-to-json-schema": "^3.24.6"
+    "zod": "^4.1.12"
   }
 }
