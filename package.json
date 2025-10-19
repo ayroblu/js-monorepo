@@ -2,8 +2,8 @@
   "name": "@agent-smith/source",
   "type": "module",
   "devDependencies": {
-    "@types/bun": "latest",
-    "prettier": "^3.6.2"
+    "@biomejs/biome": "2.2.6",
+    "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.9.3"
