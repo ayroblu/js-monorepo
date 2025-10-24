@@ -1,5 +1,5 @@
 {
-  "name": "@agent-smith/example-lib",
+  "name": "@ayroblu/example-lib",
   "module": "src/index.ts",
   "type": "module"
 }

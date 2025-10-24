@@ -1,5 +1,5 @@
 {
-  "name": "@agent-smith/source",
+  "name": "@ayroblu/js-monorepo",
   "type": "module",
   "scripts": {
     "check": "biome check --write"

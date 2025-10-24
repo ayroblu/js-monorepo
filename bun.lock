@@ -12,10 +12,10 @@
       },
     },
     "packages/example-lib": {
-      "name": "@agent-smith/example-lib",
+      "name": "@ayroblu/example-lib",
     },
     "packages/example-vite-app": {
-      "name": "@agent-smith/example-vite-app",
+      "name": "@ayroblu/example-vite-app",
       "version": "0.0.0",
       "dependencies": {
         "react": "catalog:react",
@@ -29,17 +29,17 @@
       },
     },
     "packages/openai-api": {
-      "name": "@agent-smith/openai-api",
+      "name": "@ayroblu/openai-api",
       "dependencies": {
         "openai": "^6.5.0",
         "zod": "^4.1.12",
       },
     },
     "packages/smith-app": {
-      "name": "@agent-smith/smith-app",
+      "name": "@ayroblu/smith-app",
       "version": "0.0.0",
       "dependencies": {
-        "@agent-smith/openai-api": "workspace:*",
+        "@ayroblu/openai-api": "workspace:*",
         "jotai": "2.10.4",
         "react": "catalog:react",
         "react-dom": "catalog:react",
@@ -66,13 +66,13 @@
     },
   },
   "packages": {
-    "@agent-smith/example-lib": ["@agent-smith/example-lib@workspace:packages/example-lib"],
+    "@ayroblu/example-lib": ["@ayroblu/example-lib@workspace:packages/example-lib"],
 
-    "@agent-smith/example-vite-app": ["@agent-smith/example-vite-app@workspace:packages/example-vite-app"],
+    "@ayroblu/example-vite-app": ["@ayroblu/example-vite-app@workspace:packages/example-vite-app"],
 
-    "@agent-smith/openai-api": ["@agent-smith/openai-api@workspace:packages/openai-api"],
+    "@ayroblu/openai-api": ["@ayroblu/openai-api@workspace:packages/openai-api"],
 
-    "@agent-smith/smith-app": ["@agent-smith/smith-app@workspace:packages/smith-app"],
+    "@ayroblu/smith-app": ["@ayroblu/smith-app@workspace:packages/smith-app"],
 
     "@babel/code-frame": ["@babel/code-frame@7.27.1", "", { "dependencies": { "@babel/helper-validator-identifier": "^7.27.1", "js-tokens": "^4.0.0", "picocolors": "^1.1.1" } }, "sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg=="],
 

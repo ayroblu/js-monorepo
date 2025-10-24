@@ -1,4 +1,4 @@
-import { OpenAIApi } from "@agent-smith/openai-api";
+import { OpenAIApi } from "@ayroblu/openai-api";
 import z from "zod";
 
 const getWeatherArg = z.object({

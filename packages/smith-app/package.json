@@ -1,5 +1,5 @@
 {
-  "name": "@agent-smith/smith-app",
+  "name": "@ayroblu/smith-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@agent-smith/openai-api": "workspace:*",
+    "@ayroblu/openai-api": "workspace:*",
     "jotai": "2.10.4",
     "react": "catalog:react",
     "react-dom": "catalog:react",

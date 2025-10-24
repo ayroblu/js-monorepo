@@ -26,7 +26,7 @@
     // self
     "composite": true,
     "paths": {
-      "@agent-smith/*": [
+      "@ayroblu/*": [
         "./packages/*/src"
       ]
     }

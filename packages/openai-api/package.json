@@ -1,5 +1,5 @@
 {
-  "name": "@agent-smith/openai-api",
+  "name": "@ayroblu/openai-api",
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
