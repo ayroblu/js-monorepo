@@ -16,7 +16,6 @@
   outline: none;
 }
 
-
 .inputBox {
   border-radius: 999em;
   background-color: field;
@@ -61,7 +60,7 @@
   min-height: 100dvh;
 }
 
-.chat>* {
+.chat > * {
   padding: 0 8px;
 }
 

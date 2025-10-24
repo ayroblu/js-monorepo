@@ -30,7 +30,6 @@
         }
       },
       "suspicious": {
-        "noExplicitAny": "error",
         "noExtraNonNullAssertion": "error",
         "noMisleadingInstantiator": "error",
         "noUnsafeDeclarationMerging": "error"

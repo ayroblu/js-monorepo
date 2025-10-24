@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "agent-smith",
+      "name": "@ayroblu/js-monorepo",
       "devDependencies": {
         "@biomejs/biome": "2.2.6",
         "@types/bun": "latest",

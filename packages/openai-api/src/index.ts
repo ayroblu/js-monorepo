@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import type {
   ResponseCreateParamsBase,
+  ResponseInputItem,
   Tool,
 } from "openai/resources/responses/responses.js";
 import { z } from "zod";
@@ -18,11 +19,13 @@ const openai = new OpenAI({
 type Options = {
   model: string;
   functionTools: FunctionTools;
+  systemPrompt: string;
 };
 export class OpenAIApi {
   options: Options = {
     model: "gpt-4o",
     functionTools: {},
+    systemPrompt: "You are a helpful assistant.",
   };
 
   constructor(options?: Partial<Options>) {
@@ -36,14 +39,18 @@ export class OpenAIApi {
   ): AsyncIterable<string> {
     const response = await openai.responses.create({
       model: this.options.model,
-      instructions: "You are a helpful assistant.",
+      instructions: this.options.systemPrompt,
       input,
       tools: this.tools(),
       tool_choice: "auto",
       stream: true,
     });
 
-    const outputItems = [];
+    const updatedInput =
+      typeof input === "string"
+        ? [{ role: "user" as const, content: input }]
+        : input;
+    const functionCallResults = [];
     let functionCalls = 0;
 
     // https://platform.openai.com/docs/guides/function-calling
@@ -61,31 +68,34 @@ export class OpenAIApi {
           switch (event.item.type) {
             case "function_call":
               functionCalls += 1;
-              const { name, arguments: args, id, call_id } = event.item;
-              outputItems[event.output_index] = this.callTool(name, args).then(
-                (result) => ({
+              const { name, arguments: args, call_id } = event.item;
+              functionCallResults[event.output_index] = this.callTool(
+                name,
+                args,
+              ).then(
+                (result): ResponseInputItem => ({
                   type: "function_call_output" as const,
-                  id,
+                  // id,
                   call_id,
                   output: JSON.stringify(result),
                 }),
               );
+              updatedInput.push({
+                type: "function_call",
+                call_id: event.item.call_id,
+                name: event.item.name,
+                arguments: event.item.arguments,
+              });
               break;
             default:
-            // outputItems[event.output_index] = event.item;
             // console.error("unused output item:", event.item.type, event);
           }
           break;
       }
     }
     if (functionCalls === 0) return;
-    const results = await Promise.all(outputItems.filter(Boolean));
-    const nextInput = [
-      ...(typeof input === "string"
-        ? [{ role: "user" as const, content: input }]
-        : input),
-      ...results,
-    ];
+    const results = await Promise.all(functionCallResults.filter(Boolean));
+    const nextInput = [...updatedInput, ...results];
     for await (const text of this.response(nextInput)) {
       yield text;
     }
