@@ -18,7 +18,10 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "1.103.4"
+    "@ayroblu/utils": "workspace:*",
+    "@ayroblu/shell-utils": "workspace:*",
+    "@raycast/api": "1.103.4",
+    "jotai": "catalog:safety"
   },
   "devDependencies": {
     "@types/react": "catalog:react"

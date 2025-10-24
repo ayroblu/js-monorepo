@@ -1,0 +1,12 @@
+{
+  "name": "@ayroblu/jotai-utils",
+  "module": "src/index.ts",
+  "type": "module",
+  "dependencies": {
+    "jotai": "catalog:safety"
+  },
+  "peerDependencies": {
+    "react": "catalog:react",
+    "@types/react": "catalog:react"
+  }
+}

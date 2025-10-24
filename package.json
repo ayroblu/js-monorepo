@@ -16,6 +16,9 @@
       "packages/*"
     ],
     "catalogs": {
+      "safety": {
+        "jotai": "2.10.4"
+      },
       "react": {
         "react": "19.2.0",
         "react-dom": "19.2.0",
@@ -24,7 +27,8 @@
       },
       "vite": {
         "@vitejs/plugin-react": "5.0.4",
-        "vite": "7.1.10"
+        "vite": "7.1.10",
+        "vitest": "4.0.2"
       }
     }
   }

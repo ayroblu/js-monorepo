@@ -1,0 +1,5 @@
+{
+  "name": "@ayroblu/utils",
+  "module": "src/index.ts",
+  "type": "module"
+}

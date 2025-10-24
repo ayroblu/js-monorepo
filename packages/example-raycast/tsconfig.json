@@ -1,3 +1,7 @@
 {
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.json",
+  "references": [
+    { "path": "../utils/tsconfig.json" },
+    { "path": "../shell-utils/tsconfig.json" }
+  ]
 }

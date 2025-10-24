@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ayroblu/openai-api": "workspace:*",
-    "jotai": "2.10.4",
+    "jotai": "catalog:safety",
     "react": "catalog:react",
     "react-dom": "catalog:react",
     "zod": "^4.1.12"
