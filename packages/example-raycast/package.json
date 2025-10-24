@@ -1,0 +1,33 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "example-raycast",
+  "title": "Example raycast app",
+  "description": "Just a demo app for raycast extension",
+  "icon": "icon.png",
+  "author": "author",
+  "categories": [
+    "Productivity"
+  ],
+  "license": "UNLICENSED",
+  "commands": [
+    {
+      "name": "example",
+      "title": "Example command",
+      "description": "A command that just does a hello world action",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "1.103.4"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:react"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "ray publish"
+  }
+}
